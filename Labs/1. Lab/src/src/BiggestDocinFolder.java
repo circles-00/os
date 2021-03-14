@@ -20,11 +20,13 @@ public class BiggestDocinFolder {
 
     public static void main(String[] args) throws FileNotFoundException {
         File dir = new File(filePath);
-        File [] files = getFilesInFolder(dir);
+        File[] files = getFilesInFolder(dir);
         long max = 0;
         File biggestFile = null;
-        for(File f : files){
-            if(getFileSize(f) > max){
+        for (File f : files) {
+            if (f.isDirectory())
+                continue;
+            if (getFileSize(f) > max) {
                 max = getFileSize(f);
                 biggestFile = f;
             }
