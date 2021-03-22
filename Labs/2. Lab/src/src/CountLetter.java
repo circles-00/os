@@ -22,10 +22,11 @@ public class CountLetter {
     class Counter extends Thread {
 
         public void count(String data) throws InterruptedException {
-            s.acquire();
-            if (data.equals("A"))
+            if (data.equals("A")){
+                s.acquire();
                 count++;
-            s.release();
+                s.release();
+            }
         }
         private String data;
 
