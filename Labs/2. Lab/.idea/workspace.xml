@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bcbd4653-79fb-4a18-a02e-9d8e73f3852e" name="Default Changelist" comment="">
+    <list default="true" id="456b33b5-2481-4033-93f9-461f58f27fec" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../4. Lab/src/out/production/src/mk/ukim/finki/networking/tcp/client/TCPClient.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../4. Lab/src/src/TCPClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../4. Lab/src/src/TCPClient.java" afterDir="false" />
     </list>
@@ -13,7 +13,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="ProjectId" id="1pi6itnpi2Nrz2mYtEdlSx1k2Ea" />
+  <component name="ProjectId" id="1tM2NkFGA56qPHWUWxIk17UbMif" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -24,18 +24,17 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../1. Lab" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="bcbd4653-79fb-4a18-a02e-9d8e73f3852e" name="Default Changelist" comment="" />
-      <created>1615653693307</created>
+      <changelist id="456b33b5-2481-4033-93f9-461f58f27fec" name="Default Changelist" comment="" />
+      <created>1622564599442</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1615653693307</updated>
-      <workItem from="1615653694465" duration="43000" />
-      <workItem from="1622564618043" duration="11000" />
+      <updated>1622564599442</updated>
+      <workItem from="1622564600850" duration="16000" />
     </task>
     <servers />
   </component>

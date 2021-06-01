@@ -13,6 +13,7 @@ public class CreateTxtRec {
         if(!currDir.isDirectory())
             throw new FileNotFoundException();
 
+
         File txt = new File(currDir.getAbsolutePath() + "\\" + currDir.getName() + ".txt");
         if(txt.exists())
             throw new FileExistsException();

@@ -1,52 +1,74 @@
-package mk.ukim.finki.networking.tcp.client;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
-import java.net.UnknownHostException;
 import java.util.Scanner;
 
-public class TCPClient extends Thread{
-
-    private String serverName;
+public class TCPClient extends Thread {
+    private String serverAddress;
     private int serverPort;
+    private Socket socket;
 
-    public TCPClient(String serverName, int serverPort) {
-        this.serverName = serverName;
+    public TCPClient(String serverAddress, int serverPort) throws IOException {
+        this.serverAddress = serverAddress;
         this.serverPort = serverPort;
+        this.socket = new Socket(serverAddress, serverPort);
     }
 
     @Override
     public void run() {
-        Socket socket = null;
+        this.send_data();
+        this.receive_data();
+    }
 
-        Scanner scanner = null;
-        PrintWriter writer = null;
-        BufferedReader reader = null;
+    private void send_data() {
+        new Thread() {
+            @Override
+            public void run() {
+                Scanner scanner = null;
+                PrintWriter writer = null;
+                try {
+                    writer = new PrintWriter(socket.getOutputStream());
+                    scanner = new Scanner(System.in);
 
-        try {
-            socket = new Socket(serverName,serverPort);
-            writer = new PrintWriter(socket.getOutputStream());
-            reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                    while (true) {
+                        String line = scanner.nextLine();
+                        writer.println(line);
+                        writer.flush();
+                        System.out.println();
+                    }
 
-            scanner = new Scanner(System.in);
-            while (true) {
-                String line = scanner.nextLine();
-                writer.println(line);
-                writer.flush();
-                System.out.println(reader.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
-        } catch (UnknownHostException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        }.start();
+    }
+
+    private void receive_data() {
+        new Thread() {
+            @Override
+            public void run() {
+                try {
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                    while (true)
+                        System.out.println(reader.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }.start();
     }
 
     public static void main(String[] args) {
-        TCPClient client = new TCPClient("194.149.135.49",9753);
-        client.start();
+        try {
+            TCPClient client = new TCPClient("194.149.135.49", 9753);
+            client.start();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 }
+
